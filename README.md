@@ -51,7 +51,18 @@ Stacktrace:
 
 ```
 
-Which, as far as I know, means that the application is not loading the global module for some reason.
+Which, as far as I know, means that the application is not loading the global module for some reason. Looking at a DEBUG level log 
+in the jboss server.log file shows the following regarding jmupdf:
+
+```
+13:17:39,470 DEBUG [org.jboss.as.server.deployment.module] (MSC service thread 1-1) Adding dependency ModuleDependency [identifier=com.jmupdf:main, moduleLoader=local module loader @10382a9 (roots: C:\torquebox-current\jboss\modules), export=false, optional=false, importServices=true] to module deployment.test.war:main
+13:17:39,470 DEBUG [org.jboss.as.server.deployment.module] (MSC service thread 1-1) Adding dependency ModuleDependency [identifier=com.jmupdf:main, moduleLoader=Service Module Loader, export=false, optional=false, importServices=false] to module deployment.test.war:main
+13:17:39,470 DEBUG [org.jboss.as.server.deployment.module] (MSC service thread 1-1) Adding dependency ModuleDependency [identifier=com.jmupdf:main, moduleLoader=Service Module Loader, export=false, optional=false, importServices=false] to module deployment.test.war:main
+13:17:39,484 DEBUG [org.jboss.modules] (MSC service thread 1-1) Module com.jmupdf:main defined by local module loader @10382a9 (roots: C:\torquebox-current\jboss\modules)
+```
+
+
+
 
 This has been tested on a Windows 2008 R2 Standard server JBoss installation
 
